@@ -65,12 +65,24 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# eval "$(fzf --zsh)"
+
+# Custom Config
+. "$HOME/.asdf/asdf.sh"
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+. ~/.asdf/plugins/golang/set-env.zsh
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  fzf
+  fzf-tab
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -104,15 +116,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Custom Config
-. "$HOME/.asdf/asdf.sh"
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
-# initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
-
-. ~/.asdf/plugins/golang/set-env.zsh
-
+export WLR_NO_HARDWARE_CURSORS=1
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 alias k="kubectl"
@@ -121,8 +127,16 @@ alias kns="kubectl ns"
 alias t="tmux"
 alias ta="tmux attach"
 alias sourcezsh="source ~/.zshrc"
-alias vim="lvim"
+alias v="lvim"
+alias ls="exa --icons"
+alias cat="bat --color=always"
+alias gc="git commit -m"
+alias g="git"
+alias q="exit"
+alias c="clear"
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
-export PATH=/home/hugo/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
+
+pfetch
