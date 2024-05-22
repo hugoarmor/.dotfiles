@@ -29,7 +29,6 @@
   [colors.hints.start]
   foreground = "#1e1e2e"
   background = "#f9e2af"
-
   [colors.hints.end]
   foreground = "#1e1e2e"
   background = "#a6adc8"
@@ -107,7 +106,7 @@
 
 [window]
   decorations = "None"
-  opacity = 0.9
+  opacity = 0.4
 
   [window.padding]
     x = 2

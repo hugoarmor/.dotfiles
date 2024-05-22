@@ -5,15 +5,15 @@
 lvim.colorscheme = "catppuccin-mocha"
 vim.o.termguicolors = true
 
-lvim.keys.normal_mode["<leader>bn"] = ":bnext<CR>"     -- Next buffer
-lvim.keys.normal_mode["<leader>bp"] = ":bprevious<CR>" -- Previous buffer
-lvim.keys.normal_mode["<leader>bf"] = ":bfirst<CR>"    -- First buffer
-lvim.keys.normal_mode["<leader>bl"] = ":blast<CR>"     -- Last buffer
+vim.opt.timeoutlen = 0
+-- lvim.keys.normal_mode["<leader>bn"] = ":bnext<CR>"     -- Next buffer
+-- lvim.keys.normal_mode["<leader>bp"] = ":bprevious<CR>" -- Previous buffer
+lvim.keys.normal_mode["<leader>bf"] = ":bfirst<CR>" -- First buffer
+lvim.keys.normal_mode["<leader>bl"] = ":blast<CR>"  -- Last buffer
 
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>fs', '<cmd>Telescope live_grep<CR>', opts)
-
+lvim.keys.normal_mode["<leader>f"] = nil
+lvim.keys.normal_mode["<leader>ff"] = "<cmd>Telescope find_files<CR>"
+lvim.keys.normal_mode["<leader>fs"] = "<cmd>Telescope live_grep<CR>"
 lvim.builtin.relative_number = true
 vim.opt.relativenumber = true
 
@@ -30,7 +30,7 @@ lvim.builtin.telescope.defaults.vimgrep_arguments = {
   '--line-number',
   '--column',
   '--smart-case',
-  '--hidden'  -- Include hidden files
+  '--hidden' -- Include hidden files
 }
 
 lvim.keys.normal_mode["<leader>n"] = ":nohlsearch<CR>"
@@ -38,6 +38,7 @@ lvim.keys.normal_mode["<leader>n"] = ":nohlsearch<CR>"
 lvim.plugins = {
   { "catppuccin/nvim",        name = "catppuccin" },
   { "tribela/vim-transparent" },
-  { "github/copilot.vim" }
+  --  { "tpope/vim-commentary" },
+  --  { "mg979/vim-visual-multi" }
+  --  { "github/copilot.vim--" }
 }
-
