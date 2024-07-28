@@ -127,8 +127,8 @@ alias kns="kubectl ns"
 alias t="tmux"
 alias ta="tmux attach"
 alias sourcezsh="source ~/.zshrc"
-alias v="lvim"
-alias ls="exa --icons"
+alias v="nvim"
+alias ls="eza --icons"
 alias cat="bat --color=always"
 alias gc="git commit -m"
 alias g="git"
@@ -138,5 +138,4 @@ alias c="clear"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH=$HOME/.local/bin:$PATH
 
-
-pfetch
+treefetch
