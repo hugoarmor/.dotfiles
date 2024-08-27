@@ -1,11 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-  fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
-fi
-
 . "$HOME/.asdf/asdf.sh"
 fpath=(${ASDF_DIR}/completions $fpath)
 
@@ -33,8 +28,6 @@ alias t="tmux"
 alias ta="tmux attach"
 alias sourcezsh="source ~/.zshrc"
 alias v="nvim"
-alias ls="lsd"
-alias cat="bat --color=always"
 alias gc="git commit -m"
 alias g="git"
 alias q="exit"
@@ -43,5 +36,6 @@ alias c="clear"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH=$HOME/.local/bin:$PATH
 
+pfetch 
 
-pfetch | lolcat
+eval "$(starship init zsh)"
